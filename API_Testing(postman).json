@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "4c9899c4-3124-4173-a823-eef7badcbfed",
+		"name": "API Testing Basic Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test 001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"bodyData = JSON.parse(responseBody)\r",
+							"description= bodyData.description.raw\r",
+							"name= bodyData.name\r",
+							"\r",
+							"console.log(name)\r",
+							"console.log(description)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "111371f94e360117311e631b14a9fe1e2ab2f5ac133821eca0b275a2d832c6d1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v3/projects/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v3",
+						"projects",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test002",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "apikey",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "111371f94e360117311e631b14a9fe1e2ab2f5ac133821eca0b275a2d832c6d1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"description\": {\r\n        \"raw\": \"This is the second test project\"\r\n}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v3/projects/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v3",
+						"projects",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test003",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "111371f94e360117311e631b14a9fe1e2ab2f5ac133821eca0b275a2d832c6d1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_embedded\": {\r\n        \"status\": {\r\n            \"_type\": \"ProjectStatus\",\r\n            \"id\": \"on_track\",\r\n            \"name\": \"On track\",\r\n            \"_links\": {\r\n                \"self\": {\r\n                    \"href\": \"/api/v3/project_statuses/on_track\",\r\n                    \"title\": \"On track\"\r\n                }\r\n            }\r\n        }\r\n    },\r\n    \"_type\": \"Project\",\r\n    \"identifier\": \"newproject\",\r\n    \"name\": \"NewProject\",\r\n    \"active\": true,\r\n    \"public\": true,\r\n    \"description\": {\r\n        \"format\": \"markdown\",\r\n        \"raw\": \"This is the new test project\",\r\n        \"html\": \"<p class=\\\"op-uc-p\\\">This is the first test project</p>\"\r\n    },\r\n     \"status\": {\r\n            \"href\": \"/api/v3/project_statuses/on_track\",\r\n            \"title\": \"On track\"\r\n        }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v3/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v3",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test004",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "111371f94e360117311e631b14a9fe1e2ab2f5ac133821eca0b275a2d832c6d1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v3/projects/71",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v3",
+						"projects",
+						"71"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test005",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "111371f94e360117311e631b14a9fe1e2ab2f5ac133821eca0b275a2d832c6d1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v3/work_packages/49",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v3",
+						"work_packages",
+						"49"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test006",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"bodyData = JSON.parse(responseBody)\r",
+							"description= bodyData.description.raw\r",
+							"console.log(description)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "111371f94e360117311e631b14a9fe1e2ab2f5ac133821eca0b275a2d832c6d1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"lockVersion\": 1,    \r\n\"description\": {\r\n        \"raw\": \"test\"\r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v3/work_packages/49",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v3",
+						"work_packages",
+						"49"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test007",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"bodyData = JSON.parse(responseBody)\r",
+							"description= bodyData.subject\r",
+							"console.log(description)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "111371f94e360117311e631b14a9fe1e2ab2f5ac133821eca0b275a2d832c6d1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"subject\": \"MyTask\",\r\n    \"description\": {\r\n        \"format\": \"markdown\",\r\n        \"raw\": \"test\",\r\n        \"html\": \"<p class=\\\"op-uc-p\\\">test</p>\"\r\n    },\r\n    \"scheduleManually\": false,\r\n    \"type\": {\r\n            \"href\": \"/api/v3/types/1\",\r\n            \"title\": \"Task\"\r\n        },\r\n                \"project\": {\r\n            \"href\": \"/api/v3/projects/14\",\r\n            \"title\": \"TestProject1\"\r\n        }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v3/work_packages/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v3",
+						"work_packages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test008",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "111371f94e360117311e631b14a9fe1e2ab2f5ac133821eca0b275a2d832c6d1",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "apikey",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v3/work_packages/73",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v3",
+						"work_packages",
+						"73"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
